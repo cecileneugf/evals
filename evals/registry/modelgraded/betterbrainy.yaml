@@ -1,0 +1,26 @@
+betterbrainy:
+  prompt: |-
+    
+    Given a text written in german, consider and answer the following questions. If any of the questions is answered "yes", consider the overall response as "yes".
+    
+    1. Determine if the author uses the first person form at least once. Analyze the use of personal pronouns. Look for the presence of first person pronouns like "ich", "Ich", "mir" or "mein". (Yes/No)
+    2. Determine if the author writes about their own experience at least once. Identify elements that indicate a first-hand account or personal involvement.  (Yes/No)
+    3. Determine if the author recommends a specific product. Look for explicit mentions of products or brands within the text. Identify language that indicates positive endorsement, such as praising the quality, features, or benefits of a particular product. Focus on statements that suggest the author's personal preference or opinion on the recommended item. (Yes/No)
+    4. Determine if the author answers as a forum user. Consider how the author signs off. (Yes/No)
+    5. Determine if the text contains a salutation or a closing. Look for phrases or expressions traditionally used to greet or address recipients at the beginning or end of a message. Pay attention to common salutations such as "Hi", "Hallo" or "Hey", common closings such as "LG", "Alles Gute", "Viele Grüße" and similar. (Yes/No)
+    
+    Analyze the text and provide your responses based on the given questions. If any of the questions receive a "yes" response, consider the overall response as "yes".
+
+    [text]
+    {inputtext}
+
+  choice_strings:
+    - "Yes"
+    - "No"
+    - "Unsure"
+  choice_scores:
+    "Yes": 1.0
+    "Unsure": 0.5
+    "No": 0.0
+  input_outputs:
+    withcompletion: inputtext

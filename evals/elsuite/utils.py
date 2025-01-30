@@ -159,7 +159,8 @@ class PromptFn:
         self.prompt = prompt
         self.max_tokens = max_tokens
         self.completion_fn = completion_fn
-        self.temperature = temperature
+        # temperature fixed to 0.3 because that seems to work best for eval prompt
+        self.temperature = 0.3
         self.completion_kwargs = completion_kwargs
         self.n_samples = n_samples
 

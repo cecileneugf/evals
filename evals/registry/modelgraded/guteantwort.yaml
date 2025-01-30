@@ -1,0 +1,23 @@
+guteantwort:
+  prompt: |-
+    You are comparing an original text and an rephrased version of this text. Here is the data:
+
+    [Original text]
+    {original}
+
+    [Rephrased text]
+    {rephrased}
+
+    Compare the original text and the rephrased text. Ignore any differences in grammar, punctuation or spelling. The rephrased text may be written in a similar style and tone of voice as the original, or it may differ. Determine which case applies. Answer by responding with one of the following:    
+    "similar": The rephrased text is written in a similar style or tone of voice as the original text, and uses a similar vocabulary, and does not have a more formal language.
+    "different": The rephrased text is written in a different tone of voice than the original text, or uses a different vocabulary, or has a more formal language.
+
+  choice_strings:
+    - "similar"
+    - "different"
+  choice_scores:
+    "similar": 1.0
+    "different": 0.0
+  input_outputs:
+    nocompletion: original
+    withcompletion: rephrased

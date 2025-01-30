@@ -74,9 +74,18 @@ class ModelBasedClassify(evals.Eval):
                 )
             else:
                 get_input_completion = PromptFn(
-                    test_sample[k], completion_fn=self.completion_fn, **self.sample_kwargs
+                    # test_sample[k], completion_fn=self.completion_fn, **self.sample_kwargs
+                    test_sample[k], completion_fn=self.completion_fn, completion_kwargs={"logit_bias": {288: -10, 18551: -10, 8822: -10, 10864: -10, 42335: -10}}, **self.sample_kwargs
                 )
-                completion, _ = get_input_completion()
+                if k != "nocompletion":
+                    completion, _ = get_input_completion()
+                    # TODO fix hardcoded filename
+                    with open("/Users/cecile.neu/brainy_log", 'a') as file:
+                        file.write(f"\'{test_sample['questionid']}\'~\'{completion}\'\n")
+                        file.close()
+                else:
+                    completion = test_sample[k]
+                # completion, _ = get_input_completion()
             completions[v] = completion
 
         # run modelgraded eval

@@ -1,3 +1,13 @@
+betterbrainy:
+  id: betterbrainy.v0
+  metrics: [accuracy]
+betterbrainy.v0:
+  class: evals.elsuite.modelgraded.classify:ModelBasedClassify
+  args:
+    samples_jsonl: test_modelgraded/brainy-questions-with-id.jsonl
+    eval_type: cot_classify
+    modelgraded_spec: betterbrainy
+
 # a simple modelgraded eval checking if a completion is funny or not
 joke-fruits:
   id: joke-fruits.dev.v0
